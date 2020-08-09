@@ -1,0 +1,140 @@
+
+form input {
+  width: 600px;
+}
+form button {
+  width: 92px;
+}
+
+body{
+  background-color: rgb(59, 59, 59);
+}
+
+div.logo img {
+  height: 200px;
+  width: 200px;
+}
+
+footer h5 {
+  color: #F4B400;
+}
+
+footer p {
+  color: white;
+}
+
+footer a {
+  color: white;
+}
+
+span a i.cart {
+  color: white;
+  font-size: 22px;
+}
+
+span a span.notifications {
+  color: white;
+  background-color: #F4B400;
+  font-size: 15px;
+}
+
+div.page {
+  background-color: rgb(52, 58, 64);
+}
+
+/* DISPOSITIVO MÓVEL */
+@media screen and (max-width: 990px) {
+  nav button.navbar-toggler {
+    position: absolute;
+    left: 1%;
+    width: 55px;
+    transform: translateX(-1%);
+    margin: 0!important;
+    display: block;
+    position: absolute;
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  form button.btn {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  nav div.dropdown {
+    display: flex;
+    justify-content: center;
+  }
+
+  nav div.dropdown button {
+    color: grey;
+  }
+
+  nav div.dropdown .dropdown-menu {
+    position: relative;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+    margin: 0!important;
+    background-color: silver;
+  }
+
+  nav div.dropdown .dropdown-menu li a {
+    background-color: silver;
+    border-color: silver;
+  }
+
+  nav div.dropdown .dropdown-menu li a.categoriesNames {
+    color: black;
+  }
+}
+
+@media screen and (max-width: 574px){
+  form button.btn {
+    width: 100%;
+  }
+
+  form div.logo {
+    height: 65px;
+  }
+
+  form div.logo img {
+    margin-top: -75px;
+  }
+
+}
+
+@media screen and (max-width: 768px){
+  nav div.dropdown {
+    display: flex;
+    justify-content: center;
+  }
+
+  nav div.dropdown button {
+    color: grey;
+  }
+
+  nav div.dropdown .dropdown-menu {
+    position: absolute;
+    left: 50%;
+    width: 80%;
+    transform: translateX(-50%);
+    margin: 0!important;
+    background-color: silver;
+    border: 2px solid black;
+  }
+
+  nav div.dropdown .dropdown-menu li a {
+    background-color: silver;
+    border-color: silver;
+  }
+
+  nav div.dropdown .dropdown-menu li a.categoriesNames {
+    color: black;
+  }
+
+  form button.btn {
+    font-size: 18px;
+  }
+}

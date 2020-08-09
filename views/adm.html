@@ -1,0 +1,23 @@
+{% extends './layouts/base.html' %}
+
+{% block content %}
+<h1 class="d-flex justify-content-center">FUNÇÕES ADMINISTRATIVAS</h1>
+<hr>
+<br>
+<p class="title d-flex justify-content-center">
+    <a href="/insertproducts">ADICIONAR PRODUTOS</a>
+</p>
+<br>
+<p class="title d-flex justify-content-center">
+    <a href="categories">ADICIONAR CATEGORIAS</a>
+</p>
+
+{% endblock %}
+
+{% block title %}
+  Área restrita
+{% endblock %}
+
+{% block script %}
+<link rel="stylesheet" href="styles/adm.css">
+{% endblock %}

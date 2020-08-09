@@ -1,0 +1,34 @@
+{% extends './layouts/base.html' %}
+
+{% block content %}
+<!-- PÁGINA QUE APRESENTA TODOS OS PRODUTOS CADASTRADOS -->
+
+  <h1 class="display-4 text-center">PRODUTOS</h1>
+  <hr />
+  <ul class="products">
+    {% for item in products %}
+    <li>
+      <p class="title" title="{{ item.name }}">{{ item.name }}</p>
+      <br>
+      <p class="value d-flex justify-content-center" >{{ item.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' }) }}</p>
+      <p>
+        <img src="{{ item.url }}" width="100% alt="">
+      </p>
+      <a href="/product/{{ item._id }}" class="btn btn-outline-warning btn-block btn-sm">Ver mais</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <div class="clearfix"></div>
+{% endblock %}
+
+{% block title %}
+  Produtos
+{% endblock %}
+
+{% block script %}
+  <script src="/js/products.js" charset="utf-8"></script>
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="/styles/products.css">
+{% endblock %}

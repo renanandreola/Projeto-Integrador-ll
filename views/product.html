@@ -1,0 +1,31 @@
+{% extends './layouts/base.html' %}
+
+{% block content %}
+<!-- PÁGINA INDIVIDUAL DOS PRODUTOS -->
+
+<div class="box p-5 jumbotron mt-4">
+    <h3 class="big float-right">{{ product.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' }) }} </h3>
+  <h1 class="display-4">{{ product.name }}</h1>
+  <br>
+  <h2 class="description-title p-3">DESCRIÇÃO</h2>
+  <p class="p-3" align="justify">{{ product.description | striptags(true) | escape | nl2br }}</p>
+  <input type="hidden" name="productId" id="productId" value="{{ product.id }}" />
+  <p class="p-3">
+    <img src="{{ product.url }}" width="50%" alt="">
+  </p>
+  <!--<p class="small"><strong>Ref: {{ product.id }}</strong></p>-->
+  <hr />
+  <button id="addProduct" class="btn float-right btn-danger addProduct">Adicionar ao carrinho</button>
+  <div class="clearfix"></div>
+</div>
+
+{% endblock %}
+
+{% block title %}
+  Meu Produto {{ product.id }}
+{% endblock %}
+
+{% block script %}
+  <script src="/js/products.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="/styles/product.css">
+{% endblock %}

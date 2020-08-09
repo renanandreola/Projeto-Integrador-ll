@@ -1,0 +1,44 @@
+{% extends './layouts/base.html' %}
+
+{% block content %}
+<!-- PÁGINA PARA CONTATO COM USUÁRIO -->
+
+<h1 class="display-4 text-center">ENTRE EM CONTATO</h1>
+<hr />
+<form onsubmit="send(event)">
+    <div class="col-12">
+        <label>Nome</label>
+        <input type="text" name="" value="" id="name" class="form-control">
+    </div>
+    <div class="col-12">
+        <label>Sobrenome</label>
+        <input type="text" name="" value="" id="lastname" class="form-control">
+    </div>
+    <div class="col-12">
+        <label>E-mail</label>
+        <input type="email" placeholder="example@email.com" name="" value="" id="email" class="form-control">
+    </div>
+    <br>
+    <div class="form-group green-border-focus col-12">
+        <label for="exampleFormControlTextarea5">Deixe sua mensagem</label>
+        <textarea class="form-control" id="msg" rows="3"></textarea>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+        <div class="mt-2">
+            <button type="submit" class="btn btn-warning">Enviar</button>
+        </div>
+    </div>
+</form>
+<br>
+
+{% endblock %}
+
+{% block title %}
+  Contato
+{% endblock %}
+
+{% block script %}
+  <script src="/js/contact.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="styles/contact.css">
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends './layouts/base.html' %}
+
+{% block content %}
+<!-- PÁGINA DE ADIÇAO DAS CATEGORIAS -->
+
+<h1 class="d-flex justify-content-center">ÁREA ADMINISTRATIVA</h1>
+<p class="display-4 text-center">INSIRA A CATEGORIA</p>
+<hr />
+<form onsubmit="send(event)">
+
+    <div class="col-12">
+      <label>Nome</label>
+      <input type="text" name="" value="" id="name" class="form-control">
+    </div>
+
+    <div class="col-12">
+      <label>Categoria</label>
+      <input type="text" name="" value="" id="category" class="form-control">
+    </div>
+    <br>
+
+<br>
+    <div class="row">
+      <div class="col-12 mt-2 d-flex justify-content-center">
+      <button type="submit" class="btn btn-warning">Enviar</button>
+    </div>
+  </div>
+</form>
+<br>
+
+<table class="table table-striped">
+  <div class="mt-5">
+      <h2> Lista de categorias </h2>
+      <div id="list-products"></div>
+    </div>
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Categotria</th>
+    </tr>
+  </thead>
+  {% for item in categories %}
+  <tbody>
+    <tr>
+      <td>{{ item.name }}</td>
+      <td>{{ item.slug }}</td>
+      <td><button class="btn btn-sm btn-danger btn-remove" id="{{ item._id }}">Excluir</button></td>
+    </tr>
+  </tbody>
+    {% endfor %}
+</table>
+
+{% endblock %}
+{% block title %}
+  Inserir categorias
+{% endblock %}
+
+{% block script %}
+  <script src="/js/categories.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="/styles/categories.css">
+{% endblock %}

@@ -1,0 +1,117 @@
+body{
+  background-color: rgb(59, 59, 59);
+}
+
+p.display-4 {
+  color: white;
+  font-family: fantasy;
+  font-size: 25px;
+}
+
+h2 {
+  color: red;
+  font-size: 50px;
+  font-family: fantasy;
+}
+
+form div label {
+  color: red;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: fantasy;
+}
+
+table.table {
+  background-color: grey;
+}
+
+table thead th {
+  color: white;
+}
+
+table tbody td {
+  color: white;
+  width: 100%;
+}
+
+table tbody td.nameitem {
+  max-width: 12ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+table tbody td.descriptionitem {
+  max-width: 30ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+table tbody td.urlitem {
+  max-width: 30ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* DISPOSITIVO MÓVEL */
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 25px;
+  }
+
+  p.display-4 {
+    font-size: 20px;
+  }
+
+  form div label {
+    font-size: 18px;
+  }
+
+  form div.row {
+    width: 100%;
+    margin: 0;
+  }
+
+  /* table {
+    width: 100%;
+  } */
+
+  table tbody td.categoryId {
+    max-width: 2ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  table tbody td.nameitem {
+    max-width: 2ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  table tbody td.priceitem {
+    max-width: 2ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  table tbody td.descriptionitem {
+    display: none;
+  }
+
+  table tbody td.urlitem {
+    display: none;
+  }
+
+  table thead th.thdescription {
+    display: none;
+  }
+
+  table thead th.thurl {
+    display: none;
+  }
+}

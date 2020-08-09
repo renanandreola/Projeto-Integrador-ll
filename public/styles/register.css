@@ -1,0 +1,42 @@
+body{
+    background-color: rgb(59, 59, 59);
+  }
+
+  h1{
+    color: #F4B400;
+    font-family: fantasy;
+  }
+
+  form label {
+    color: white;
+    font-family: sans-serif;
+  }
+
+  form div input.form-control {
+    background-color: #d3d3d3;
+  }
+
+  form div input.form-control:focus {
+  background-color: #d3d3d3;
+}
+
+  form div select.form-control {
+    background-color: #d3d3d3;
+  }
+
+  form div select.form-control:focus {
+    background-color: #d3d3d3;
+  }
+
+/* DISPOSITIVO MÓVEL */
+  @media screen and (max-width: 768px) {
+    form div button {
+      width: 100%;
+    }
+
+    h1.display-4 {
+      color: #F4B400;
+      font-family: fantasy;
+      font-size: 25px;
+    }
+  }

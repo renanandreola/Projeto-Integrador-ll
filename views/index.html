@@ -1,0 +1,128 @@
+{% extends './layouts/base.html' %}
+{% block content %}
+<h1 class="display-4 text-center">RMA SUPLEMENTOS</h1>
+<hr />
+
+<div class="cards d-flex justify-content-center">
+    <div class="mr-5 col-2" style="width: 10rem;">
+        <img src="https://www.boostmyshop.fr/media/catalog/product/cache/7/thumbnail/9df78eab33525d08d6e5fb8d27136e95/r/m/rma-logo-660.png" width="146px" height="146px" alt="">
+        <div class="underimages">
+            <p class="ml-2">Rápida entrega Frete Grátis para todo o Brasil
+            </p>
+        </div>
+    </div>
+
+    <div class="mr-5 col-2" style="width: 10rem;">
+        <img src="https://rmadevelopment.com/wp-content/uploads/2018/12/RMA-DEV_TaxBenefitsCON.png" width="146px" height="146px" alt="...">
+        <div class="underimages">
+            <p>Ótimo custo benefício Preços baixos
+            </p>
+        </div>
+    </div>
+
+    <div class="mr-5 col-2" style="width: 10rem;">
+        <img src="https://blob.vivotek.com/downloadfile/Support/Warranty&RMA/support-cyber-security2019030406171056920190509075035707.png" width="146px" height="146px" alt="...">
+        <div class="underimages">
+            <p class="ml-3">100% nos laudos Trocas aceitas
+            </p>
+        </div>
+    </div>
+
+    <div class="mr-5 col-2" style="width: 10rem;">
+        <img src="https://image.winudf.com/v2/image/Y29tLmRpYWxvZ2F1c2lsaS5kaWFsb2dybWFuZXdfaWNvbl8xNTI4OTUwMzkwXzA4Mw/icon.png?w=170&fakeurl=1" width="146px" height="146px" alt="...">
+        <div class="underimages">
+            <p>Produtos importados Produtos originais
+            </p>
+        </div>
+    </div>
+</div>
+<br>
+<h2 class="d-flex justify-content-center">PRODUTOS DE ALTA QUALIDADE</h2>
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <a href="/products">
+                <img class="d-block w-100" src="https://myhealthpantry.com.au/wp-content/uploads/2018/11/Optimum-Nutrition-Gold-Standard-Whey-banner.jpg" width="1920px" height="400px" alt="First slide">
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="/products">
+                <img class="d-block w-100" src="http://www.mmnutritiondistribuidora.com.br/img/optimum-nutrition-top-banner.png" width="1920px" height="400px" alt="Second slide">
+            </a>
+        </div>
+        <div class="carousel-item">
+            <a href="/products">
+                <img class="d-block w-100" src="https://images.tcdn.com.br/img/img_prod/556696/1558791169_banner-optimum-nutrition-forja-suplementos.jpg" width="1920px" height="400px" alt="Third slide">
+            </a>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<br>
+<h2 class="d-flex justify-content-center">CONFIRA AS NOVIDADES</h2>
+<br>
+<ul class="products ">
+    {% for item in products %}
+    <li class=''>
+        <p class="title" title="{{ item.name }}">{{ item.name }}</p>
+        <br>
+        <p class="value d-flex justify-content-center">{{ item.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' }) }}</p>
+        <p>
+            <img src="{{ item.url }}" width="100% alt=" ">
+    </p>
+    <a href="/product/{{ item.id }} " class="btn btn-outline-warning btn-block btn-sm ">Ver mais</a>
+  </li>
+  {% endfor %}
+</ul>
+<div class="clearfix "></div>
+<br>
+<div id="carouselExampleControls " class="carousel slide " data-ride="carousel ">
+  <div class="carousel-inner ">
+    <div class="carousel-item active ">
+      <a href="/products ">
+      <img class="d-block w-100 " src="https://dragonpharmabrasil.com/wp-content/uploads/2019/09/sardina_welcome_Banner3-1-1170x400.jpg " width="1920px " height="400px "  alt="First slide ">
+    </a>
+    </div>
+    <div class="carousel-item ">
+      <a href="/products ">
+      <img class="d-block w-100 " src="https://labradabrasil.com.br/site/wp-content/uploads/2017/07/BANNER-1350x450-Diego-Rosa-1350x450.jpg " width="1920px " height="400px " alt="Second slide ">
+      </a>
+    </div>
+    <div class="carousel-item ">
+        <a href="/products ">
+      <img class="d-block w-100 " src="https://dragonpharmabrasil.com/wp-content/uploads/2019/09/09-17-19-Banner-Blog-Post-Caike-Oliveira-2-1-1170x400.jpg " width="1920px " height="400px "   alt="Third slide ">
+        </a>
+    </div>
+  </div>
+  <a class="carousel-control-prev " href="#carouselExampleControls " role="button " data-slide="prev ">
+    <span class="carousel-control-prev-icon " aria-hidden="true "></span>
+    <span class="sr-only ">Previous</span>
+  </a>
+  <a class="carousel-control-next " href="#carouselExampleControls " role="button " data-slide="next ">
+    <span class="carousel-control-next-icon " aria-hidden="true "></span>
+    <span class="sr-only ">Next</span>
+  </a>
+</div>
+<hr>
+<br>
+
+
+
+{% endblock %}
+{% block title %}
+  Pagina inicial
+{% endblock %}
+{% block script %}
+  <script src="/js/index.js" charset="utf-8"></script>
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="/styles/index.css">
+{% endblock %}

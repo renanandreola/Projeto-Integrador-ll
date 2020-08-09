@@ -1,0 +1,27 @@
+body {
+  background-color: rgb(59, 59, 59);
+}
+
+h1 {
+  color: #F4B400;
+  font-family: fantasy;
+}
+
+div label {
+  color: white;
+  font-family: sans-serif;
+}
+
+  /* DISPOSITIVO MÓVEL */
+@media screen and (max-width: 768px) {
+  form div button, form div.row.d-flex div {
+    padding: 0 30px;
+    width: 100%;
+  }
+
+  h1.display-4 {
+    color: #F4B400;
+    font-family: fantasy;
+    font-size: 25px;
+  }
+}

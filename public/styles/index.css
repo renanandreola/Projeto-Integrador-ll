@@ -1,0 +1,131 @@
+
+body{
+  background-color: rgb(59, 59, 59);
+}
+
+.products {
+  list-style: none;
+  padding: 0;
+}
+.products li {
+  float: left;
+  margin-bottom: 20px;
+  padding: 15px;
+  width: 25%;
+  background-color: grey;
+  border-right: 2px solid grey;
+  border-color: black;
+  min-height: 380px;
+  position: relative;
+}
+.products p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+}
+.products li a {
+  position: absolute;
+  bottom: 10px;
+  width: 90%;
+  /* dica para alinhar elemento absoluto ao centro */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.products img {
+  max-height: 200px;
+  position: absolute;
+  bottom: 50px;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card {
+  border: none;
+  text-align: center;
+}
+
+h1{
+  font-family: fantasy;
+  color: #F4B400;
+}
+
+div.underimages {
+  color: white;
+  font-family: sans-serif;
+}
+
+h2 {
+  color: #F4B400;
+}
+
+li p.title {
+  color: black;
+  font-family: fantasy;
+  font-size: 20px;
+}
+
+li p.value {
+  color: rgb(255, 238, 0);
+  font-family: fantasy;
+  font-size: 30px;
+}
+
+/* DISPOSITIVO MÓVEL */
+@media screen and (max-width: 420px) {
+  .products li{
+    width: 50%;
+    min-height: 380px;
+  }
+
+  .products img {
+    max-height: 200px;
+    position: absolute;
+    bottom: 50px;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  div.carousel img {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .products li{
+    width: 50%;
+    min-height: 380px;
+  }
+
+  .products img {
+    max-height: 200px;
+    position: absolute;
+    bottom: 50px;
+    width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 768px){
+  div.carousel img {
+    height: 200px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  div.cards div.mr-5 {
+    display: none;
+  }
+
+  h1.display-4 {
+    display: none;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}

@@ -1,0 +1,94 @@
+{% extends './layouts/base.html' %}
+
+{% block content %}
+<!-- PÁGINA PARA INSERIR OS PRODUTOS -->
+
+<h2 class="d-flex justify-content-center">ÁREA ADMINISTRATIVA</h2>
+<hr>
+<p class="display-4 text-center">INSIRA SEUS PRODUTOS</p>
+<hr />
+<form onsubmit="send(event)">
+    <div class="col-12">
+      <label>Categoria</label>
+      <select id="category" class="form-control">
+        <option value="">Selecione uma categoria</option>
+        {% for item in categories %}
+          <option value="{{ item._id }}">{{ item.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <div class="col-12">
+      <label>Nome</label>
+      <input type="text" name="" value="" id="name" class="form-control">
+    </div>
+
+    <div class="col-12">
+      <label>Preço</label>
+      <input type="number" name="" value="" id="price" class="form-control">
+    </div>
+    <br>
+
+    <div class="form-group green-border-focus col-12">
+      <label for="exampleFormControlTextarea5">Descrição</label>
+      <textarea class="form-control" id="description" rows="3"></textarea>
+    </div>
+
+    <div class="col-12">
+      <label>URL</label>
+      <input type="url" name="url" value="" id="url" class="form-control">
+    </div>
+<br>
+    <div class="row">
+      <div class="col-12 mt-2 d-flex justify-content-center">
+      <button type="submit" class="btn btn-warning">Enviar</button>
+    </div>
+  </div>
+</form>
+<br>
+{% if products | length > 0 %}
+<table class="table table-striped">
+  <div class="mt-5">
+      <h2> Lista de produtos </h2>
+      <div id="list-products"></div>
+    </div>
+  <thead>
+    <tr>
+      <th class="thcategoryId" scope="col">ID</th>
+      <th class="thname" scope="col">Nome</th>
+      <th class="thprice" scope="col">Preço</th>
+      <th class="thdescription" scope="col">Descrição</th>
+      <th class="thurl" scope="col">URL</th>
+    </tr>
+  </thead>
+  {% for item in products %}
+  <tbody>
+    <tr>
+      <td class="categoryId">{{ item.category }}</td>
+      <td class="nameitem">{{ item.name }}</td>
+      <td class="priceitem">{{ item.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' }) }}</td>
+      <td class="descriptionitem">{{ item.description }}</td>
+      <td class="urlitem">{{ item.url }}</td>
+      <td><button class="btn btn-sm btn-danger btn-remove" id="{{ item._id }}">Excluir</button></td>
+    </tr>
+  </tbody>
+    {% endfor %}
+</table>
+{% else %}
+<div class="jumbotron">
+
+  <h5 class="text-center">Sem produtos </h5>
+</div>
+
+{% endif %}
+
+{% endblock %}
+
+{% block title %}
+  Inserir Produtos
+{% endblock %}
+
+{% block script %}
+  <script src="/js/insertproducts.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="/styles/insertproducts.css">
+{% endblock %}
