@@ -1,3 +1,4 @@
+// Instalação das bibliotecas
 const express = require('express');
 const app = express();
 const nunjucks = require('nunjucks');
@@ -23,20 +24,22 @@ require('useful-nunjucks-filters')(env);
 
 var port = process.env.PORT || 3000;
 
+//
+
 const Products = mongoose.model('Product', ProductsSchema);
 const Clients = mongoose.model('Clients', ClientsSchema);
 const Categories = mongoose.model('Categories', CategoriesSchema);
 
-mongoose.connect(MONGODB_URL, {useNewUrlParser: true}, err => {
+mongoose.connect(MONGODB_URL, {useUnifiedTopology: true, useNewUrlParser: true}, err => {
     if (err) {
         console.error('[SERVER_ERROR] MongoDB Connection:', err);
         process.exit(1);
     }
-    console.info('Mongo connected');
+    console.info('...MONGODB CONNECTED...');
 
 
     app.listen(port, () => {
-      console.log('Escutando na porta 3000');
+      console.log('...LISTEN ON PORT 3000...');
     });
 
 });
@@ -64,6 +67,8 @@ app.use((req, res, next) => {
   });
 });
 
+//
+
 app.get('/', (req, res) => {
   Products.find().sort('+price').limit(12).exec((err, obj) => {
     console.info(obj.length);
@@ -72,7 +77,7 @@ app.get('/', (req, res) => {
 });
 
 app.delete('/admin/product/:id', (req, res) => {
-  Products.findOneAndRemove({_id: req.params.id}, (err, obj) => {
+  Products.findOneAndDelete({_id: req.params.id}, (err, obj) => {
     if(err) {
       res.send('error');
     }
@@ -81,7 +86,7 @@ app.delete('/admin/product/:id', (req, res) => {
 });
 
 app.delete('/category/:id', (req, res) => {
-  Categories.findOneAndRemove({_id: req.params.id}, (err, obj) => {
+  Categories.findOneAndDelete({_id: req.params.id}, (err, obj) => {
     if(err) {
       res.send('error');
     }
@@ -131,6 +136,8 @@ app.get('/insertproducts', (req, res) => {
    });
 });
 
+//
+
 app.get('/contact', (req, res) => {
   res.render('contact.html');
 });
@@ -147,35 +154,11 @@ app.get('/cart', (req, res) => {
  res.render('cart.html');
 });
 
-app.post('/send', (req, res) => {
- var email = 'artur.nzk@gmail.com';
- const transporter = nodemailer.createTransport({
-   service: 'gmail',
-   auth: {
-     user: 'senacerechim2019@gmail.com',
-     pass: 'senacrserechim'
-   }
- });
- const mailOptions = {
-   from: 'senacerechim2019@gmail.com',
-   to: email,
-   subject: 'Hello ' + req.body.name + ' sending e-mail using Node.js',
-   text: req.body.message
- };
- transporter.sendMail(mailOptions, (error, info) => {
-   if (error) {
-     console.log(error);
-   } else {
-     console.log('Email sent: ' + info.response);
-   }
-   res.send('ok');
- });
-});
-
 app.get('/register', (req, res) => {
   res.render('register.html');
 });
 
+//
 
 app.post('/login', (req, res) => {
   Clients.find({'email': req.body.email, 'password': md5(req.body.password)}, (err, obj) => {
@@ -197,35 +180,32 @@ app.get('/categories', (req, res) => {
  });
 });
 
-app.get('/artur', function (req, res) {
-  res.render('artur.html');
-});
 
-app.post('/send', (req, res) => {
-  var email = 'artur.nzk@gmail.com';
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'senacerechim2019@gmail.com',
-      pass: 'senacrserechim'
-    }
-  });
-  const mailOptions = {
-    from: 'senacerechim2019@gmail.com',
-    to: email,
-    subject: 'Hello ' + req.body.name + ' sending e-mail using Node.js',
-    text: req.body.message
-  };
+// app.post('/send', (req, res) => {
+//   var email = 'artur.nzk@gmail.com';
+//   const transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//       user: 'senacerechim2019@gmail.com',
+//       pass: 'senacrserechim'
+//     }
+//   });
+//   const mailOptions = {
+//     from: 'senacerechim2019@gmail.com',
+//     to: email,
+//     subject: 'Hello ' + req.body.name + ' sending e-mail using Node.js',
+//     text: req.body.message
+//   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-    res.send('ok');
-  });
-});
+//   transporter.sendMail(mailOptions, (error, info) => {
+//     if (error) {
+//       console.log(error);
+//     } else {
+//       console.log('Email sent: ' + info.response);
+//     }
+//     res.send('ok');
+//   });
+// });
 
 app.post('/client', (req, res) => {
   var client = new Clients(req.body);
@@ -264,7 +244,6 @@ app.get('/product/:id', (req, res) => {
 });
 
 // APIs
-
 app.get('/api/products', (req, res) => {
   res.send(listProducts);
 });

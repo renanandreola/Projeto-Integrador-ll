@@ -98,7 +98,6 @@ function showCart () {
 $(document).ready(function () {
   showCart();
 
-
   $('form').submit(function (event) {
     event.preventDefault();
     var email = $("#email").val()
