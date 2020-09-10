@@ -69,9 +69,10 @@ app.use((req, res, next) => {
 
 //
 
+// Produtos da home
 app.get('/', (req, res) => {
   Products.find().sort('+price').limit(12).exec((err, obj) => {
-    console.info(obj.length);
+    console.info("Total de produtos na Home: ", obj.length);
     res.render('index.html', {products: obj});
   });
 });
