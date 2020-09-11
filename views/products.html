@@ -3,7 +3,7 @@
 {% block content %}
 <!-- PÁGINA QUE APRESENTA TODOS OS PRODUTOS CADASTRADOS -->
 
-  <h1 class="display-4 text-center">PRODUTOS</h1>
+  <h1 class="text-center">PRODUTOS</h1>
   <hr />
   <ul class="products">
     {% for item in products %}
@@ -14,7 +14,7 @@
       <p>
         <img src="{{ item.url }}" width="100% alt="">
       </p>
-      <a href="/product/{{ item._id }}" class="btn btn-outline-warning btn-block btn-sm">Ver mais</a>
+      <a href="/product/{{ item._id }}" class="btn btn-primary btn-block btn-sm">Ver mais</a>
     </li>
     {% endfor %}
   </ul>

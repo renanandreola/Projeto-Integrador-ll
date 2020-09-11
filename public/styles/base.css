@@ -1,3 +1,67 @@
+.top-content {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+
+.nav-content {
+  width: 80%;
+  margin-top: -25px;
+}
+
+input.search-input{
+  width: 74% !important;
+}
+
+button.btn-form {
+  width: 25%;
+}
+
+.navbar {
+  background: azure;
+  width: 100%;
+}
+
+.nav-item {
+  width: 25%;
+}
+
+.dropdown {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-nav {
+  width: 100%;
+}
+
+.navbar-brand {
+  width: 40%;
+}
+
+.nav-link {
+  height: 40px;
+  color: black !important;
+  border: none !important;
+}
+
+.nav-link:hover {
+  color: #fff !important;
+}
+
+@media (max-width: 988px){
+  .navbar-brand {
+    width: 100%;
+    display: flex !important;
+    justify-content: center;
+  }
+}
+
+.collapse {
+  justify-content: start;
+  width: 60%;
+}
 
 form input {
   width: 600px;
@@ -10,30 +74,48 @@ body{
   background-color: #fff;
 }
 
+.logo {
+  margin-bottom: -10%;
+  margin-top: -6.5%;
+  display: flex;
+  justify-content: center;
+}
+
 div.logo img {
-  height: 200px;
-  width: 200px;
+  height: 300px;
+  width: 300px;
+}
+
+@media (max-width: 767px){
+  div.logo img {
+    height: 300px;
+    width: 300px;
+  }
+}
+
+footer {
+  background: lightgray;
 }
 
 footer h5 {
-  color: #F4B400;
+  color: black;
 }
 
 footer p {
-  color: white;
+  color: black;
 }
 
 footer a {
-  color: white;
+  color: black;
 }
 
 span a i.cart {
-  color: white;
+  color: black;
   font-size: 22px;
 }
 
 span a span.notifications {
-  color: white;
+  color: black;
   background-color: #F4B400;
   font-size: 15px;
 }

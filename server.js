@@ -71,12 +71,13 @@ app.use((req, res, next) => {
 
 // Produtos da home
 app.get('/', (req, res) => {
-  Products.find().sort('+price').limit(12).exec((err, obj) => {
+  Products.find().sort('+price').limit(4).exec((err, obj) => {
     console.info("Total de produtos na Home: ", obj.length);
     res.render('index.html', {products: obj});
-  });
+  });    
 });
 
+// Deletar produtos
 app.delete('/admin/product/:id', (req, res) => {
   Products.findOneAndDelete({_id: req.params.id}, (err, obj) => {
     if(err) {
@@ -86,6 +87,7 @@ app.delete('/admin/product/:id', (req, res) => {
   });
 });
 
+// Deletar categorias
 app.delete('/category/:id', (req, res) => {
   Categories.findOneAndDelete({_id: req.params.id}, (err, obj) => {
     if(err) {
@@ -97,7 +99,7 @@ app.delete('/category/:id', (req, res) => {
 
 app.use(express.static('public'));
 
-//pesquisa de produtos
+// Pesquisa de produtos
 app.get('/products', (req, res) => {
   const query = req.query.q;
   let cond = [];
@@ -113,6 +115,7 @@ app.get('/products', (req, res) => {
 
 //
 
+// Junção de categorias com produtos
 app.get('/c/:slug', (req, res) => {
   Categories.aggregate([
     {$match: {slug: req.params.slug}},
@@ -139,6 +142,7 @@ app.get('/insertproducts', (req, res) => {
 
 //
 
+// Renderização das páginas
 app.get('/contact', (req, res) => {
   res.render('contact.html');
 });
@@ -159,6 +163,10 @@ app.get('/register', (req, res) => {
   res.render('register.html');
 });
 
+app.get('/product', (req, res) => {
+  res.render('product.html');
+});
+
 //
 
 app.post('/login', (req, res) => {
@@ -171,9 +179,6 @@ app.post('/login', (req, res) => {
   })
 });
 
-app.get('/product', (req, res) => {
-      res.render('product.html');
-});
 
 app.get('/categories', (req, res) => {
   Categories.find((err, obj) => {
@@ -181,7 +186,7 @@ app.get('/categories', (req, res) => {
  });
 });
 
-
+// Envio de email
 // app.post('/send', (req, res) => {
 //   var email = 'artur.nzk@gmail.com';
 //   const transporter = nodemailer.createTransport({
@@ -208,6 +213,7 @@ app.get('/categories', (req, res) => {
 //   });
 // });
 
+// Inserir clientes
 app.post('/client', (req, res) => {
   var client = new Clients(req.body);
   client.password = md5(client.password);
@@ -217,6 +223,7 @@ app.post('/client', (req, res) => {
   })
 });
 
+// Inserir produtos
 app.post('/insertproducts', (req, res) => {
   var insertproducts = new Products(req.body);
   insertproducts.save((err, insertproducts) => {
@@ -225,6 +232,7 @@ app.post('/insertproducts', (req, res) => {
   })
 });
 
+// Inserir ctegorias
 app.post('/categories', (req, res) => {
   var categories = new Categories(req.body);
   categories.save((err, categories) => {
@@ -243,6 +251,8 @@ app.get('/product/:id', (req, res) => {
       }
   });
 });
+
+//
 
 // APIs
 app.get('/api/products', (req, res) => {

@@ -1,14 +1,14 @@
-body {
+/* body {
   background-color: rgb(59, 59, 59);
-}
+} */
 
 h1 {
-  color: #F4B400;
+  color: #007bff;
   font-family: fantasy;
 }
 
 div label {
-  color: white;
+  color: black;
   font-family: sans-serif;
 }
 
@@ -19,8 +19,8 @@ div label {
     width: 100%;
   }
 
-  h1.display-4 {
-    color: #F4B400;
+  h1{
+    color: #007bff;
     font-family: fantasy;
     font-size: 25px;
   }

@@ -13,59 +13,73 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"> {% block styles %} {% endblock %}
 </head>
 
-<body style="background-image: url(https://i2.wp.com/www.multarte.com.br/wp-content/uploads/2019/01/fundo-banner-png16.png?w=696&ssl=1)">
-    <div class="container">
+<body>
+    <div class="">
         <header>
             <br>
-            <form class="form-inline my- my-lg-2 d-flex justify-content-center" action="/products">
-                <div class="logo">
-                    <img src="https://images.squarespace-cdn.com/content/v1/566e9a1025981d5723c744e4/1555338566458-O81Z6KJDOVUCW6YDWU99/ke17ZwdGBToddI8pDm48kGDpvalPb1SqHoCn1hwN0Y57gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmx-YtV7KdJhhcFMxgH7DNwVWsr4BytTuzU0mdZNjZkC7ehjA8nxqmKGxR1QtMJl5J/rma.png" alt="">
+
+            <div class="top-content">
+                <div class="nav-content">
+                    <nav class="navbar navbar-expand-lg navbar navbar-dark">
+                        <!-- <a class="navbar-brand" style="color: black;" href="/">LAZZAROTTO</a> -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item ">
+                                    <a class="nav-link btn btn-outline-dark" href="/"><strong>Página inicial</strong></a>
+                                </li>
+                                <!-- <li class="nav-item ">
+                                    <a class="nav-link btn btn-dark ml-5" href="/register"><strong>Cadastre-se</strong></a>
+                                </li> -->
+                                <li class="nav-item ">
+                                    <a class="nav-link btn btn-outline-dark" href="/contact"><strong>Contato</strong></a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link btn btn-outline-dark" href="/about"><strong>Sobre</strong></a>
+                                </li>
+                                <div class="dropdown">
+                                    <button class="nav-link dropdown-toggle mr-1 btn btn-outline-dark font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Categorias
+                                    </button>
+                                    <div class="page dropdown-menu ml-4" aria-labelledby="dropdownMenuButton">
+                                        {% for item in categories %}
+                                        <li><a class="categoriesNames nav-link btn btn-primary" href="/c/{{ item.slug }}">{{ item.name }}</a></li>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+        
+                                <!-- <li class="nav-item ">
+                                    <a class="nav-link btn btn-dark ml-5" href="/adm"><strong>Adm</strong></a>
+                                </li> -->
+                            </ul>
+        
+                            <!-- CARRINHO DE COMPRAS -->
+                            <span class="float-right mr-4">
+                        <!-- <a href="/cart">
+                                <i class="cart fas fa-shopping-cart mr-2"></i>
+                                <span class="notifications badge badge-danger" id="cart-items"></span>
+                            </a> -->
+                            </span>
+                        </div>
+                    </nav>
+                    <form class="form-inline my- my-lg-2 d-flex justify-content-center" action="/products">
+                        <input class="search-input form-control mr-sm-1" type="text" name="q" placeholder="Digite o nome do produto a ser buscado" aria-label="Search">
+                        <button class="btn-form btn btn-outline-primary my-2 my-sm-0" type="submit" value="Search">Pesquisar</button>
+                    </form>
                 </div>
-                <input class="form-control mr-sm-1 " type="text" name="q" placeholder="Digite um produto" aria-label="Search">
-                <button class="btn btn-outline-warning my-2 my-sm-0" type="submit" value="Search">Pesquisar</button>
-            </form>
+                <div class="logo">
+                        <img src="https://i.ibb.co/m68krfP/lazzarotto-banner.png" alt="lazzarotto-banner">
+                </div>
+            </div>
+            
+            
             <br>
             <!-- LOCAL DE NAVEGAÇÃO DO SITE -->
-            <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark mr-2">
-                <a class="navbar-brand ml-5" href="/">RMA SUPLEMENTOS</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item ">
-                            <a class="nav-link btn btn-dark ml-5" href="/"><strong>Página inicial</strong></a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link btn btn-dark ml-5" href="/register"><strong>Cadastre-se</strong></a>
-                        </li>
-                        <li class="nav-item ">
-                            <a class="nav-link btn btn-dark ml-5" href="/contact"><strong>Contato</strong></a>
-                        </li>
-                        <div class="dropdown">
-                            <button class="dropdown-toggle mr-1 btn btn-dark font-weight-bold ml-5" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Categorias
-                            </button>
-                            <div class="page dropdown-menu ml-4" aria-labelledby="dropdownMenuButton">
-                                {% for item in categories %}
-                                <li><a class="categoriesNames nav-link btn btn-dark" href="/c/{{ item.slug }}">{{ item.name }}</a></li>
-                                {% endfor %}
-                            </div>
-                        </div>
+            
 
-                        <li class="nav-item ">
-                            <a class="nav-link btn btn-dark ml-5" href="/adm"><strong>Adm</strong></a>
-                        </li>
-                    </ul>
-                    <!-- CARRINHO DE COMPRAS -->
-                    <span class="float-right mr-4">
-          <a href="/cart">
-            <i class="cart fas fa-shopping-cart mr-2"></i>
-            <span class="notifications badge badge-danger" id="cart-items"></span>
-                    </a>
-                    </span>
-                </div>
-            </nav>
+            
         </header>
         <div class="mt-5">
             {% block content %} {% endblock %}
@@ -76,34 +90,40 @@
             <div class="container text-center text-md-left">
                 <div class="row">
                     <div class="col-md-4 mx-auto">
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">RMA Suplementos</h5>
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Lazzarotto</h5>
                         <p>
-                            CNPJ: 00.000.000/0000-00
-                            <br> CEP: 00000-000
-                            <br> Rua Teste, 207
-                            <br> Bairro: Teste
-                            <br> Cidade: Erechim / RS
-                            <br> Telefone: 54 1234-5678</p>
+                            CNPJ: 00.000.000/0000-00.
+                            <br> CEP: 997000-30.
+                            <br> Rua Portugal, 270 sala B.
+                            <br> Bairro: Centro.
+                            <br> Cidade: Erechim / RS.
+                            <br> Telefone: (54) 3321-6588.</p>
                     </div>
                     <div class="col-md-4 mx-auto">
                         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Atendimento</h5>
-                        <p>Seg. à Sex: 8h às 18h.
-                            <br> Sáb: 8h às 12h.
-                            <br> Dom e Feriados: Fechado.</p>
+                        <p>Seg. à Sex 
+                            <br>
+                            Manhã: 8h às 12h
+                            <br>
+                            Tarde: 13h 30min às 18h 15min.
+                            <br> 
+                            Sáb: Fechado.
+                            <br> 
+                            Dom e Feriados: Fechado.</p>
                     </div>
                     <hr class="clearfix w-100 d-md-none">
                     <div class="col-md-2 mx-auto">
-                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Siga-nos nas redes sociais</h5>
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">O que fazemos</h5>
                         <!-- Links das redes sociais -->
                         <ul class="list-unstyled">
                             <li>
-                                <a href="https://pt-br.facebook.com/">Facebook</a>
+                                <p>Manutenção de lavadores de alta pressão.</p>
                             </li>
                             <li>
-                                <a href="https://twitter.com/login?lang=pt">Twitter</a>
+                                <p>Manutenção de aspiradores de pó.</p>
                             </li>
                             <li>
-                                <a href="https://www.instagram.com/?hl=pt-br">Instagram</a>
+                                <p>Comércio de peças.</p>
                             </li>
                         </ul>
                     </div>
@@ -111,7 +131,7 @@
             </div>
             <hr>
             <div class="text-center text-muted">
-                <p>Redes sociais</p>
+                <p>REDES SOCIAIS</p>
             </div>
             <!-- Social buttons -->
             <!-- Imagns das redes sociais na footer -->
@@ -122,24 +142,14 @@
                     </a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="https://twitter.com/login?lang=pt" class="btn-floating btn-tw mx-3">
-                        <i class="fab fa-twitter">Twitter</i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
                     <a href="https://plus.google.com/?hl=pt-BR" class="btn-floating btn-gplus mx-3">
                         <i class="fab fa-google-plus-g">Google Plus</i>
-                    </a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="https://br.linkedin.com" class="btn-floating btn-li mx-3">
-                        <i class="fab fa-linkedin-in">Linkedin</i>
                     </a>
                 </li>
             </ul>
             <!-- Parte inferior da footer -->
             <div class="text-center text-muted">
-                <p class="small">rmasuplementos.com.br <i class="fas fa-copyright"></i> Todos direitos reservados</p>
+                <p class="small">Lazzarotto - Comércio de peças e assistência técnica <i class="fas fa-copyright"></i> Todos direitos reservados</p>
             </div>
     </div>
     </footer>
