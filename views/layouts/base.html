@@ -4,82 +4,74 @@
 <head>
     <meta charset="utf-8">
     <title>
-        {% block title%} {% endblock %}
+        {% block title%}
+        {% endblock %}
     </title>
     <meta name="viewport" content="width=device-width, user-scalable=no">
-    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet/less" type="text/css" href="/styles/base.less" />
+    <!-- <link rel="stylesheet" href="/styles/base.less"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"> {% block styles %} {% endblock %}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    {% block styles %}
+    {% endblock %}
 </head>
 
 <body>
     <div class="">
         <header>
-            <br>
-
-            <div class="top-content">
-                <div class="nav-content">
-                    <nav class="navbar navbar-expand-lg navbar navbar-dark">
-                        <!-- <a class="navbar-brand" style="color: black;" href="/">LAZZAROTTO</a> -->
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li class="nav-item ">
-                                    <a class="nav-link btn btn-outline-dark" href="/"><strong>Página inicial</strong></a>
-                                </li>
-                                <!-- <li class="nav-item ">
-                                    <a class="nav-link btn btn-dark ml-5" href="/register"><strong>Cadastre-se</strong></a>
-                                </li> -->
-                                <li class="nav-item ">
-                                    <a class="nav-link btn btn-outline-dark" href="/contact"><strong>Contato</strong></a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a class="nav-link btn btn-outline-dark" href="/about"><strong>Sobre</strong></a>
-                                </li>
-                                <div class="dropdown">
-                                    <button class="nav-link dropdown-toggle mr-1 btn btn-outline-dark font-weight-bold" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Categorias
-                                    </button>
-                                    <div class="page dropdown-menu ml-4" aria-labelledby="dropdownMenuButton">
-                                        {% for item in categories %}
-                                        <li><a class="categoriesNames nav-link btn btn-primary" href="/c/{{ item.slug }}">{{ item.name }}</a></li>
-                                        {% endfor %}
-                                    </div>
-                                </div>
-        
-                                <!-- <li class="nav-item ">
-                                    <a class="nav-link btn btn-dark ml-5" href="/adm"><strong>Adm</strong></a>
-                                </li> -->
-                            </ul>
-        
-                            <!-- CARRINHO DE COMPRAS -->
-                            <span class="float-right mr-4">
-                        <!-- <a href="/cart">
-                                <i class="cart fas fa-shopping-cart mr-2"></i>
-                                <span class="notifications badge badge-danger" id="cart-items"></span>
-                            </a> -->
-                            </span>
-                        </div>
-                    </nav>
-                    <form class="form-inline my- my-lg-2 d-flex justify-content-center" action="/products">
-                        <input class="search-input form-control mr-sm-1" type="text" name="q" placeholder="Digite o nome do produto a ser buscado" aria-label="Search">
-                        <button class="btn-form btn btn-outline-primary my-2 my-sm-0" type="submit" value="Search">Pesquisar</button>
-                    </form>
-                </div>
-                <div class="logo">
-                        <img src="https://i.ibb.co/m68krfP/lazzarotto-banner.png" alt="lazzarotto-banner">
-                </div>
+            <div class="bem-vindo">
+                <p class="bem-vindo-p">Seja bem vindo, visitante!</p>
             </div>
-            
-            
-            <br>
-            <!-- LOCAL DE NAVEGAÇÃO DO SITE -->
-            
 
-            
+            <div class="navbar">
+                <div class="company-name">
+                    <p class="name-company">LTMAQ LAZZAROTTO</p>
+                </div>
+
+                <!-- LOCAL DE NAVEGAÇÃO DO SITE -->
+                <ul class="sections">
+                    <li class="section nav-item">
+                        <a class="nav-link btn btn-outline-dark" href="/">
+                            <strong>Página inicial</strong>
+                        </a>
+                    </li>
+                    <li class="section nav-item">
+                        <a class="nav-link btn btn-outline-dark" href="/contact">
+                            <strong>Contato</strong>
+                        </a>
+                    </li>
+                    <li class="section nav-item">
+                        <a class="nav-link btn btn-outline-dark" href="/about">
+                            <strong>Sobre</strong>
+                        </a>
+                    </li>
+                    <div class="section dropdown">
+                        <button class="nav-link dropdown-toggle btn btn-outline-dark font-weight-bold" type="button"
+                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categorias
+                        </button>
+                        <div class="page dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            {% for item in categories %}
+                            <li>
+                                <a class="categoriesNames nav-link btn btn-primary"
+                                    href="/c/{{ item.slug }}">{{ item.name }}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </ul>
+            </div>
+            <!-- LOCAL DE BUSCA NO SITE -->
+            <form class="search-products" action="/products">
+                <input class="search-input form-control" type="text" name="q"
+                    placeholder="Digite o nome do produto a ser buscado" aria-label="Search">
+                <button class="send-search btn-form btn btn-outline-primary" type="submit"
+                    value="Search">Pesquisar</button>
+            </form>
+
+
         </header>
         <div class="mt-5">
             {% block content %} {% endblock %}
@@ -101,14 +93,14 @@
                     </div>
                     <div class="col-md-4 mx-auto">
                         <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Atendimento</h5>
-                        <p>Seg. à Sex 
+                        <p>Seg. à Sex
                             <br>
                             Manhã: 8h às 12h
                             <br>
                             Tarde: 13h 30min às 18h 15min.
-                            <br> 
+                            <br>
                             Sáb: Fechado.
-                            <br> 
+                            <br>
                             Dom e Feriados: Fechado.</p>
                     </div>
                     <hr class="clearfix w-100 d-md-none">
@@ -149,15 +141,19 @@
             </ul>
             <!-- Parte inferior da footer -->
             <div class="text-center text-muted">
-                <p class="small">Lazzarotto - Comércio de peças e assistência técnica <i class="fas fa-copyright"></i> Todos direitos reservados</p>
+                <p class="small">Lazzarotto - Comércio de peças e assistência técnica <i class="fas fa-copyright"></i>
+                    Todos direitos reservados</p>
             </div>
     </div>
     </footer>
     <!-- scripts -->
+    <script src="//cdn.jsdelivr.net/npm/less"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" charset="utf-8"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" charset="utf-8"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
     <script src="/js/base.js" charset="utf-8"></script>
     {% block script %} {% endblock %}
 </body>
