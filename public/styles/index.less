@@ -3,21 +3,34 @@
   background-color: rgb(59, 59, 59);
 } */
 
+.image-index {
+    height: 900px;
+    background-image: url(https://s2.best-wallpaper.net/wallpaper/1920x1080/1209/WALL-E-robot-and-vacuum-cleaner_1920x1080.jpg);
+    position: relative;
+    margin-top: -108px;
+    z-index: -1; 
+}
+
+.d-flex {
+  text-align: center;
+}
+
 .products {
   list-style: none;
   padding: 0;
 }
 .products li {
-  float: left;
-  margin-bottom: 20px;
-  padding: 15px;
-  width: 25%;
-  background-color: azure;
-  border-right: 1px solid grey;
-  border-color: gray;
-  min-height: 380px;
-  position: relative;
-  box-shadow: #000 -2px 2px 10px;
+    float: left;
+    margin-bottom: 20px;
+    padding: 15px;
+    width: 25%;
+    background-color: azure;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    min-height: 380px;
+    position: relative;
 }
 .products p {
   text-overflow: ellipsis;
@@ -74,7 +87,7 @@ li p.title {
 }
 
 li p.value {
-  color: green;
+  color:#0069d9;
   font-family: fantasy;
   font-size: 30px;
 }

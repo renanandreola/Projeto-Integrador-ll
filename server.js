@@ -167,6 +167,10 @@ app.get('/product', (req, res) => {
   res.render('product.html');
 });
 
+app.get('/about', (req, res) => {
+  res.render('about.html');
+});
+
 //
 
 app.post('/login', (req, res) => {
