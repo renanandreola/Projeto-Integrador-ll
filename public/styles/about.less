@@ -1,0 +1,43 @@
+h1 {
+    color: #007bff;
+    font-family: fantasy;
+}
+
+.div-about {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+
+    @media (max-width: 767px) {
+        flex-direction: column;
+      }
+
+    .left {
+        display: flex;
+        width: 50%;
+        flex-direction: column;
+        justify-content: center;
+        text-align: justify;
+        padding-right: 5%;
+        padding-left: 5%;
+        @media (max-width: 767px) {
+            width: 100%;
+        }
+    }
+
+    .right {
+        display: flex;
+        width: 50%;
+        justify-content: center;
+        @media (max-width: 767px) {
+            width: 100%;
+        }
+
+        .image-about {
+            @media (max-width: 767px) {
+                height: 320px;
+                width: 320px;
+            }
+        }
+    }
+}

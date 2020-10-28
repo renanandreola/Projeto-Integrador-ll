@@ -4,11 +4,24 @@
 } */
 
 .image-index {
-    height: 900px;
-    background-image: url(https://s2.best-wallpaper.net/wallpaper/1920x1080/1209/WALL-E-robot-and-vacuum-cleaner_1920x1080.jpg);
-    position: relative;
-    margin-top: -108px;
-    z-index: -1; 
+  height: 650px;
+  position: relative;
+  margin-top: -90px;
+  z-index: -1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 767px) {
+    height: 230px;
+  }
+
+  .image-lazzarotto {
+    @media (max-width: 767px) {
+      width: 325px;
+      height: 326px;
+    }
+  }
 }
 
 .d-flex {

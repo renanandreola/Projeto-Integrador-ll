@@ -1,18 +1,32 @@
 body{
-    background-color: rgb(59, 59, 59);
+    background-color: rgb(202, 202, 202);
 }
 
 h1 {
-    color: red;
+    color: #007bff;
     font-size: 50px;
     font-family: fantasy;
 }
 
 p a {
-    color: #F4B400;
+    color: #007bff;
     font-family: fantasy;
     font-size: 25px;
 }  
+
+.modal-login{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 1;
+    position: fixed;
+    background: white;
+    height: 2000px;
+    width: 2000px;
+    top: 0;
+    justify-content: end;
+    padding-left: 20px;
+}
 
 /* DISPOSITIVO MÓVEL */
 @media screen and (max-width: 768px) {

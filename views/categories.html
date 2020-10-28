@@ -3,6 +3,21 @@
 {% block content %}
 <!-- PÁGINA DE ADIÇAO DAS CATEGORIAS -->
 
+<div class="modal-login">
+  <div class="username">
+    <p>Usuário</p>
+    <input id="username" type="text">
+  </div>
+  <div class="password">
+    <p>Senha</p>
+    <input id="password" type="password">
+  </div>
+  <br>
+  <div class="btn-login">
+    <button class="btn btn-primary" onclick="login()" >Login</button>
+  </div>
+</div>
+
 <h1 class="d-flex justify-content-center">ÁREA ADMINISTRATIVA</h1>
 <p class="display-4 text-center">INSIRA A CATEGORIA</p>
 <hr />
@@ -22,7 +37,7 @@
 <br>
     <div class="row">
       <div class="col-12 mt-2 d-flex justify-content-center">
-      <button type="submit" class="btn btn-warning">Enviar</button>
+      <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
   </div>
 </form>

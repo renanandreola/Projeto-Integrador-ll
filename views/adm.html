@@ -1,6 +1,21 @@
 {% extends './layouts/base.html' %}
 
 {% block content %}
+<div class="modal-login">
+  <div class="username">
+    <p>Usuário</p>
+    <input id="username" type="text">
+  </div>
+  <div class="password">
+    <p>Senha</p>
+    <input id="password" type="password">
+  </div>
+  <br>
+  <div class="btn-login">
+    <button class="btn btn-primary" onclick="login()" >Login</button>
+  </div>
+</div>
+
 <h1 class="d-flex justify-content-center">FUNÇÕES ADMINISTRATIVAS</h1>
 <hr>
 <br>
@@ -19,5 +34,6 @@
 {% endblock %}
 
 {% block script %}
+<script src="/js/adm.js" charset="utf-8"></script>
 <link rel="stylesheet" href="styles/adm.css">
 {% endblock %}
