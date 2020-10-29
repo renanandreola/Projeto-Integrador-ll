@@ -192,31 +192,38 @@ app.get('/categories', (req, res) => {
 });
 
 // Envio de email
-// app.post('/send', (req, res) => {
-//   var email = 'artur.nzk@gmail.com';
-//   const transporter = nodemailer.createTransport({
-//     service: 'gmail',
-//     auth: {
-//       user: 'senacerechim2019@gmail.com',
-//       pass: 'senacrserechim'
-//     }
-//   });
-//   const mailOptions = {
-//     from: 'senacerechim2019@gmail.com',
-//     to: email,
-//     subject: 'Hello ' + req.body.name + ' sending e-mail using Node.js',
-//     text: req.body.message
-//   };
+app.post('/send', (req, res) => {
+  var email = req.body.email;
+  var name = req.body.name;
+  var lastname = req.body.lastname;
 
-//   transporter.sendMail(mailOptions, (error, info) => {
-//     if (error) {
-//       console.log(error);
-//     } else {
-//       console.log('Email sent: ' + info.response);
-//     }
-//     res.send('ok');
-//   });
-// });
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    auth: {
+      user: 'ltmaqlazzarotto@gmail.com',
+      pass: 'ltmaqEmpresa10'
+    }
+  });
+  const mailOptions = {
+    from: email,
+    to: 'ltmaqlazzarotto@gmail.com',
+    subject: req.body.email + ' entou em contato',
+    text: "Nome: " + name + " / "
+          + "Sobrenome: " + lastname + " / " 
+          + "Mensagem: " + req.body.message
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+    res.send('ok');
+  });
+});
 
 // Inserir clientes
 app.post('/client', (req, res) => {

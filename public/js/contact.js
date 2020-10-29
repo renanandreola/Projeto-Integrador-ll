@@ -33,8 +33,23 @@ function send (event) {
   }
 
   else {
-    toastr["success"]("Mensagem enviada com sucesso!");
     clear();
+    var data = {
+      email: email,
+      message: msg,
+      name: name,
+      lastname: lastname
+    }
+    $.post('/send', data, function (res) {
+      if(res === 'ok') {
+        toastr["success"]("Mensagem enviada com sucesso!");
+        setTimeout(function(){
+          location.reload();
+        },1500);
+      } else {
+        toastr["error"]("Erro: " + res);
+     }
+})
   }
 }
 

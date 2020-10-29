@@ -4,7 +4,8 @@
 <!-- PÁGINA INDIVIDUAL DOS PRODUTOS -->
 
 <div class="box p-5 jumbotron mt-4">
-    <h3 class="big float-right">{{ product.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' }) }} </h3>
+  <h3 class="big float-right">
+    {{ product.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 , style: 'currency', currency: 'BRL' }) }} </h3>
   <h1 class="display-4">{{ product.name }}</h1>
   <br>
   <h2 class="description-title p-3">DESCRIÇÃO</h2>
@@ -15,17 +16,24 @@
   </p>
   <!--<p class="small"><strong>Ref: {{ product.id }}</strong></p>-->
   <hr />
-  <button class="btn float-right btn-danger addProduct" onclick="goToContact()" >Entre em contato para comprar</button>
+  <div style="display: flex; justify-content: center;">
+    <button style="height: 70px;
+                   width: 250px;
+                   font-size: 20px;
+                   font-weight: bold;
+                   color: black;" 
+            class="btn btn-success addProduct" onclick="goToContact()">COMPRAR PRODUTO</button>
+  </div>
   <div class="clearfix"></div>
 </div>
 
 {% endblock %}
 
 {% block title %}
-  Meu Produto {{ product.id }}
+Meu Produto {{ product.id }}
 {% endblock %}
 
 {% block script %}
-  <script src="/js/products.js" charset="utf-8"></script>
-  <link rel="stylesheet" href="/styles/product.css">
+<script src="/js/products.js" charset="utf-8"></script>
+<link rel="stylesheet" href="/styles/product.css">
 {% endblock %}
