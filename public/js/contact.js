@@ -1,3 +1,5 @@
+const nodemon = require("nodemon");
+
 function send (event) {
 
   event.preventDefault();
@@ -12,18 +14,23 @@ function send (event) {
 
 
   // VALIDAÇÃO DOS CAMPOS DO FORMULÁRIO
-  if (name == "") {
-    toastr["error"]("Campo nome obrigatório");
+  var verifyInt = /\d+/g;
+  var regexName = /[@!#$%^&*()-='+_"?°~`<>.{}\\]/;
+  var regexSurname = /[@!#$%^&*()-='+_"?°~`<>.{}\\]/;
+  var regexEmail = /[!#$%^&*()='+"?°~`< >{}\\]/;
+  
+  if (name == "" || name.match(verifyInt) != null || regexName.test(name) == true ) {
+    toastr["error"]("Campo nome é obrigatório ou está inválido");
     return
   }
 
-  if (lastname == "") {
-    toastr["error"]("Campo sobrenome obrigatório");
+  if (lastname == "" || lastname.match(verifyInt) != null || regexSurname.test(lastname) == true ) {
+    toastr["error"]("Campo sobrenome é obrigatório ou está inválido");
     return
   }
-
-  if (email == "") {
-    toastr["error"]("Campo email obrigatório");
+ 
+  if (email == "" || regexEmail.test(email) == true ) {
+    toastr["error"]("Campo email é obrigatório ou está inválido");
     return
   }
 
